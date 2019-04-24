@@ -18,7 +18,7 @@ def index():
 @app.route('/result', methods=['GET', 'POST'])
 def result():
     df_data = livescores_all()
-    return render_template('result.html', data=df_data)
+    return render_template('result.html', data=df_data.to_html())
 
 
 
