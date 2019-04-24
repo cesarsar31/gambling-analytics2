@@ -3,7 +3,7 @@ import datetime
 
 from flask import Flask, render_template, flash, redirect, request, url_for
 from pprint import pprint as pp
-from gamble import query_api
+from gamble import livescores_all
 
 app = Flask(__name__)
 
@@ -17,14 +17,8 @@ def index():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
-    data = []
-    error = None
-    select = request.form.get('comp_select')
-    resp = query_api()
-    pp(resp)
-    if resp:
-        data.append(resp)
-    return render_template('result.html', data=data)
+    df_data = livescores_all()
+    return render_template('result.html', data=df_data)
 
 
 
