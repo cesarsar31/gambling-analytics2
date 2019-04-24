@@ -30,7 +30,8 @@ def livescores_all():       #Recupera todos los partidos del día
     columnas = col1 + col2
     df_partidos = pd.DataFrame(columns=columnas)
     if  len(ls_partidos_dia) == 0:
-        print('There are no matches today')
+        x = 'There are no matches today :('
+        return(x)
     else:
         i = 0
         for partido in ls_partidos_dia:
